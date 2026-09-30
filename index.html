@@ -12,13 +12,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0f172a;
+            background-color: #e15800;
             color: #f8fafc;
         }
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(255, 88, 0, 0.7);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(168, 66, 0, 0.4);
         }
         .heart-beat {
             animation: pulse 1.5s infinite;
@@ -93,8 +93,7 @@
                     <input type="text" id="movie-title" placeholder="Nome do Filme/Série" required 
                         class="bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500">
                     <select id="movie-category" class="bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500">
-                        <option value="Quero Assistir">Quero Assistir</option>
-                        <option value="Assistindo">Assistindo</option>
+                        <option value="Quero Assistir">Vamos Assistir</option>
                         <option value="Já Assistimos">Já Assistimos ❤️</option>
                     </select>
                     <button type="submit" class="bg-rose-600 hover:bg-rose-500 text-white font-medium rounded-xl px-6 py-2.5 transition-all shadow-lg shadow-rose-600/20">
@@ -150,10 +149,7 @@
         let appData = JSON.parse(localStorage.getItem('coupleAppData')) || {
             names: "João & Mari",
             startDate: "2026-09-20T18:41",
-            movies: [
-                { id: 1, title: "La La Land", category: "Já Assistimos" },
-                { id: 2, title: "Questão de Tempo", category: "Quero Assistir" }
-            ]
+            movies: []
         };
 
         // Initialize Settings UI values
