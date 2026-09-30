@@ -13,12 +13,12 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #e15800;
-            color: #f8fafc;
+            color: #1a1a1a;
         }
         .glass-card {
-            background: rgba(255, 88, 0, 0.7);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(168, 66, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .heart-beat {
             animation: pulse 1.5s infinite;
@@ -30,54 +30,54 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-rose-500 selection:text-white">
+<body class="min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
 
-    <!-- Header / Hero Section -->
     <header class="w-full py-12 px-4 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-rose-900/20 via-purple-900/20 to-slate-900/25 z-0"></div>
         <div class="max-w-4xl mx-auto relative z-10">
-            <div class="inline-block p-3 rounded-full bg-rose-500/10 text-rose-500 mb-4 heart-beat">
+            <div class="inline-block p-3 rounded-full bg-black/10 text-black mb-4 heart-beat">
                 <i class="fas fa-heart text-3xl"></i>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-300" id="couple-names">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-black" id="couple-names">
                 João & Mari
             </h1>
-            <p class="text-slate-400 text-sm md:text-base">Filmes para ver juntos</p>
+            <p class="text-black/80 font-medium text-sm md:text-base">Filmes para ver juntos</p>
             
             <!-- Relationship Counter Card -->
             <div class="mt-8 glass-card rounded-2xl p-6 max-w-2xl mx-auto shadow-2xl">
-                <h3 class="text-xs uppercase tracking-wider text-rose-400 font-semibold mb-4">Tempo Juntos</h3>
+                <h3 class="text-xs uppercase tracking-wider text-black font-bold mb-4">Tempo Juntos</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                    <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
-                        <span id="days" class="text-2xl md:text-3xl font-bold text-white block">0</span>
-                        <span class="text-xs text-slate-400">Dias</span>
+                    <div class="bg-black/20 p-3 rounded-xl border border-black/10">
+                        <span id="days" class="text-2xl md:text-3xl font-bold text-black block">0</span>
+                        <span class="text-xs text-black/80 font-medium">Dias</span>
                     </div>
-                    <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
-                        <span id="hours" class="text-2xl md:text-3xl font-bold text-white block">0</span>
-                        <span class="text-xs text-slate-400">Horas</span>
+                    <div class="bg-black/20 p-3 rounded-xl border border-black/10">
+                        <span id="hours" class="text-2xl md:text-3xl font-bold text-black block">0</span>
+                        <span class="text-xs text-black/80 font-medium">Horas</span>
                     </div>
-                    <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
-                        <span id="minutes" class="text-2xl md:text-3xl font-bold text-white block">0</span>
-                        <span class="text-xs text-slate-400">Minutos</span>
+                    <div class="bg-black/20 p-3 rounded-xl border border-black/10">
+                        <span id="minutes" class="text-2xl md:text-3xl font-bold text-black block">0</span>
+                        <span class="text-xs text-black/80 font-medium">Minutos</span>
                     </div>
-                    <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
-                        <span id="seconds" class="text-2xl md:text-3xl font-bold text-rose-400 block">0</span>
-                        <span class="text-xs text-slate-400">Segundos</span>
+                    <div class="bg-black/20 p-3 rounded-xl border border-black/10">
+                        <span id="seconds" class="text-2xl md:text-3xl font-bold text-black block">0</span>
+                        <span class="text-xs text-black/80 font-medium">Segundos</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Tabs / Sections -->
     <main class="max-w-4xl w-full mx-auto px-4 py-8 flex-grow">
         
         <!-- Navigation Buttons -->
-        <div class="flex justify-center gap-4 mb-8">
-            <button onclick="switchTab('movies')" id="btn-movies" class="px-6 py-2.5 rounded-xl font-medium transition-all bg-rose-600 text-white shadow-lg shadow-rose-600/30">
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button onclick="switchTab('movies')" id="btn-movies" class="px-6 py-2.5 rounded-xl font-bold transition-all bg-yellow-400 text-black shadow-lg hover:bg-yellow-300 border-2 border-black">
                 <i class="fas fa-film mr-2"></i> Nossa Lista de Filmes
             </button>
-            <button onclick="switchTab('settings')" id="btn-settings" class="px-6 py-2.5 rounded-xl font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
+            <button onclick="openRandomizer()" class="px-6 py-2.5 rounded-xl font-bold transition-all bg-black text-yellow-400 shadow-lg hover:bg-gray-900 border-2 border-yellow-400 flex items-center">
+                <i class="fas fa-dice mr-2"></i> Sortear Filme 🎲
+            </button>
+            <button onclick="switchTab('settings')" id="btn-settings" class="px-6 py-2.5 rounded-xl font-bold transition-all bg-black text-white hover:bg-gray-900 border-2 border-black">
                 <i class="fas fa-cog mr-2"></i> Configurar Datas
             </button>
         </div>
@@ -85,18 +85,18 @@
         <!-- Section: Movies -->
         <div id="section-movies" class="space-y-6">
             <div class="glass-card rounded-2xl p-6 shadow-xl">
-                <h2 class="text-xl font-semibold mb-4 text-slate-100 flex items-center justify-between">
+                <h2 class="text-xl font-bold mb-4 text-black flex items-center justify-between">
                     <span>Adicionar Filme ou Série</span>
-                    <i class="fas fa-video text-rose-400"></i>
+                    <i class="fas fa-video text-black"></i>
                 </h2>
                 <form id="movie-form" class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <input type="text" id="movie-title" placeholder="Nome do Filme/Série" required 
-                        class="bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500">
-                    <select id="movie-category" class="bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500">
-                        <option value="Quero Assistir">Vamos Assistir</option>
+                        class="bg-white/90 border-2 border-black rounded-xl px-4 py-2.5 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    <select id="movie-category" class="bg-white/90 border-2 border-black rounded-xl px-4 py-2.5 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        <option value="Vamos Assistir">Vamos Assistir</option>
                         <option value="Já Assistimos">Já Assistimos ❤️</option>
                     </select>
-                    <button type="submit" class="bg-rose-600 hover:bg-rose-500 text-white font-medium rounded-xl px-6 py-2.5 transition-all shadow-lg shadow-rose-600/20">
+                    <button type="submit" class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl px-6 py-2.5 transition-all shadow-md border-2 border-black">
                         Adicionar
                     </button>
                 </form>
@@ -105,8 +105,8 @@
             <!-- Movies List Grid -->
             <div class="glass-card rounded-2xl p-6 shadow-xl">
                 <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-xl font-semibold text-slate-100">Lista de Filmes</h2>
-                    <span id="movie-count" class="text-xs bg-slate-800 text-rose-400 px-3 py-1 rounded-full border border-slate-700">0 itens</span>
+                    <h2 class="text-xl font-bold text-black">Lista de Filmes</h2>
+                    <span id="movie-count" class="text-xs bg-black text-yellow-400 font-bold px-3 py-1 rounded-full border border-yellow-400">0 itens</span>
                 </div>
                 <div id="movies-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Dynamic Items -->
@@ -117,19 +117,19 @@
         <!-- Section: Settings -->
         <div id="section-settings" class="hidden space-y-6">
             <div class="glass-card rounded-2xl p-6 shadow-xl max-w-xl mx-auto">
-                <h2 class="text-xl font-semibold mb-4 text-slate-100">Personalizar Dados do Casal</h2>
+                <h2 class="text-xl font-bold mb-4 text-black">Personalizar Dados do Casal</h2>
                 <form id="settings-form" class="space-y-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2">Nomes do Casal</label>
+                        <label class="block text-xs uppercase tracking-wider text-black font-bold mb-2">Nomes do Casal</label>
                         <input type="text" id="input-names" value="João & Mari" required
-                            class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500">
+                            class="w-full bg-white/90 border-2 border-black rounded-xl px-4 py-2.5 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2">Data e Hora de Início</label>
+                        <label class="block text-xs uppercase tracking-wider text-black font-bold mb-2">Data e Hora de Início</label>
                         <input type="datetime-local" id="input-date" required
-                            class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500">
+                            class="w-full bg-white/90 border-2 border-black rounded-xl px-4 py-2.5 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400">
                     </div>
-                    <button type="submit" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-medium rounded-xl py-3 transition-all shadow-lg shadow-rose-600/20">
+                    <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl py-3 transition-all shadow-md border-2 border-black">
                         Salvar Alterações
                     </button>
                 </form>
@@ -138,18 +138,35 @@
 
     </main>
 
+    <!-- Randomizer Modal -->
+    <div id="randomizer-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-[#e15800] border-4 border-black rounded-3xl p-8 max-w-md w-full text-center shadow-2xl relative">
+            <button onclick="closeRandomizer()" class="absolute top-4 right-4 text-black hover:text-white font-bold text-xl bg-yellow-400 w-8 h-8 rounded-full border-2 border-black flex items-center justify-center">
+                &times;
+            </button>
+            <div class="text-4xl mb-3">🎲🎬</div>
+            <h3 class="text-2xl font-bold text-black mb-2">Sorteio de Filme</h3>
+            <p class="text-black/80 text-sm mb-6">Filme escolhido da lista "Vamos Assistir":</p>
+            <div id="randomizer-result" class="bg-black/20 border-2 border-black rounded-2xl p-6 text-2xl font-bold text-black mb-6 min-h-[100px] flex items-center justify-center">
+                Clique no botão abaixo para sortear!
+            </div>
+            <button onclick="pickRandomMovie()" class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl py-3.5 transition-all shadow-md border-2 border-black text-lg">
+                Sortear Agora 🎲
+            </button>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="text-center py-6 text-xs text-slate-500 border-t border-slate-800/80 mt-12">
-        MJ FILMS.
+    <footer class="text-center py-6 text-xs text-black font-bold border-t border-black/20 mt-12">
+        Mari + João = ☀️
     </footer>
 
-    <!-- JavaScript Logic -->
     <script>
         // Default Data & LocalStorage Management
         let appData = JSON.parse(localStorage.getItem('coupleAppData')) || {
             names: "João & Mari",
             startDate: "2026-09-20T18:41",
-            movies: []
+            movies: [ ]
         };
 
         // Initialize Settings UI values
@@ -186,16 +203,52 @@
             const secSettings = document.getElementById('section-settings');
 
             if (tab === 'movies') {
-                btnMovies.className = "px-6 py-2.5 rounded-xl font-medium transition-all bg-rose-600 text-white shadow-lg shadow-rose-600/30";
-                btnSettings.className = "px-6 py-2.5 rounded-xl font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700";
+                btnMovies.className = "px-6 py-2.5 rounded-xl font-bold transition-all bg-yellow-400 text-black shadow-lg hover:bg-yellow-300 border-2 border-black";
+                btnSettings.className = "px-6 py-2.5 rounded-xl font-bold transition-all bg-black text-white hover:bg-gray-900 border-2 border-black";
                 secMovies.classList.remove('hidden');
                 secSettings.classList.add('hidden');
             } else {
-                btnSettings.className = "px-6 py-2.5 rounded-xl font-medium transition-all bg-rose-600 text-white shadow-lg shadow-rose-600/30";
-                btnMovies.className = "px-6 py-2.5 rounded-xl font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700";
+                btnSettings.className = "px-6 py-2.5 rounded-xl font-bold transition-all bg-yellow-400 text-black shadow-lg hover:bg-yellow-300 border-2 border-black";
+                btnMovies.className = "px-6 py-2.5 rounded-xl font-bold transition-all bg-black text-white hover:bg-gray-900 border-2 border-black";
                 secSettings.classList.remove('hidden');
                 secMovies.classList.add('hidden');
             }
+        }
+
+        // Randomizer Modal Controls
+        function openRandomizer() {
+            document.getElementById('randomizer-modal').classList.remove('hidden');
+            document.getElementById('randomizer-modal').classList.add('flex');
+            document.getElementById('randomizer-result').innerText = "Clique no botão abaixo para sortear!";
+        }
+
+        function closeRandomizer() {
+            document.getElementById('randomizer-modal').classList.add('hidden');
+            document.getElementById('randomizer-modal').classList.remove('flex');
+        }
+
+        function pickRandomMovie() {
+            const watchList = appData.movies.filter(m => m.category === "Vamos Assistir");
+            const resultBox = document.getElementById('randomizer-result');
+
+            if (watchList.length === 0) {
+                resultBox.innerText = "Nenhum filme na lista 'Vamos Assistir'!";
+                return;
+            }
+
+            // Animation effect
+            resultBox.innerText = "Sorteando...";
+            let counter = 0;
+            const interval = setInterval(() => {
+                const randomItem = watchList[Math.floor(Math.random() * watchList.length)];
+                resultBox.innerText = randomItem.title;
+                counter++;
+                if (counter > 10) {
+                    clearInterval(interval);
+                    const finalChoice = watchList[Math.floor(Math.random() * watchList.length)];
+                    resultBox.innerText = `🎬 ${finalChoice.title}`;
+                }
+            }, 80);
         }
 
         // Render Movies
@@ -206,23 +259,22 @@
             countBadge.innerText = `${appData.movies.length} itens`;
 
             if (appData.movies.length === 0) {
-                container.innerHTML = `<p class="text-slate-500 text-center col-span-2 py-4">Nenhum filme adicionado ainda.</p>`;
+                container.innerHTML = `<p class="text-black/80 font-medium text-center col-span-2 py-4">Nenhum filme adicionado ainda.</p>`;
                 return;
             }
 
             appData.movies.forEach(movie => {
-                let badgeColor = "bg-blue-500/10 text-blue-400 border-blue-500/20";
-                if (movie.category === "Já Assistimos") badgeColor = "bg-rose-500/10 text-rose-400 border-rose-500/20";
-                if (movie.category === "Assistindo") badgeColor = "bg-amber-500/10 text-amber-400 border-amber-500/20";
+                let badgeColor = "bg-yellow-300 text-black border-black";
+                if (movie.category === "Já Assistimos") badgeColor = "bg-black text-yellow-400 border-yellow-400";
 
                 const card = document.createElement('div');
-                card.className = "bg-slate-800/40 border border-slate-700/60 p-4 rounded-xl flex items-center justify-between";
+                card.className = "bg-white/20 border-2 border-black p-4 rounded-xl flex items-center justify-between shadow-md";
                 card.innerHTML = `
                     <div>
-                        <h4 class="font-medium text-white mb-1">${escapeHtml(movie.title)}</h4>
-                        <span class="text-xs px-2.5 py-1 rounded-full border ${badgeColor}">${escapeHtml(movie.category)}</span>
+                        <h4 class="font-bold text-black mb-1">${escapeHtml(movie.title)}</h4>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-full border ${badgeColor}">${escapeHtml(movie.category)}</span>
                     </div>
-                    <button onclick="deleteMovie(${movie.id})" class="text-slate-500 hover:text-rose-400 transition-colors p-2">
+                    <button onclick="deleteMovie(${movie.id})" class="text-black hover:text-red-700 transition-colors p-2 bg-yellow-400 rounded-lg border-2 border-black">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                 `;
